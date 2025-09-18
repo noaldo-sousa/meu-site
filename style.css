@@ -1,0 +1,268 @@
+:root {
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --primary-color: #1f3c88;
+  --primary-hover: #3f5ea8;
+  --nav-bg: #1f3c88;
+  --btn-bg: #1f3c88;
+  --btn-text: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #90caf9;
+    --primary-hover: #64b5f6;
+    --btn-bg: #2196f3;
+    --btn-text: #fff;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--nav-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+  height: 60px;
+}
+
+.logo {
+  color: var(--btn-text);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: var(--btn-text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: var(--btn-text);
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* Seções com compensação de altura do menu */
+.section {
+  min-height: calc(100vh - 60px);
+  padding-top: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Seção Início */
+#inicio .inicio-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+
+.texto-impacto {
+  max-width: 400px;
+}
+
+.texto-impacto h1 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.texto-impacto p {
+  font-size: 1.1rem;
+}
+
+.imagem-noaldo img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+/* Botões de contato */
+.contato-btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Botão flutuante */
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Carrossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  touch-action: pan-x;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.slide p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--nav-bg);
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #inicio .inicio-content {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .imagem-noaldo img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
+  .texto-impacto {
+    padding: 0 10px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+
+  .section {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+}
